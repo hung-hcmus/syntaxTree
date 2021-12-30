@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <form class="form__group" action="renderTree" method=POST>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+        <label for="name" class="form__label">Enter a sentence</label> 
+        <input type="submit" value="Submit" class="submit_btn"></input>
+    </form>
+{% endblock %}
