@@ -3,6 +3,9 @@
 {% load static %}
 <br></br>
 <p class="resultString"> {{result}} </p>
-<img src = "{% static 'images/tree0.png' %} " width="700" height="500">
+
+{% for image in imgs %}
+<img src="{% static 'images/' %}{{image}}"  width="700" height="500"> 
+{% endfor %}
 
 {% endblock %}
