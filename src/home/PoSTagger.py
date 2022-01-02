@@ -29,17 +29,18 @@ def extract_features(sentence, index):
       'capitals_inside': sentence[index][1:].lower() != sentence[index][1:]
   }
 
-currentPath = os.path.dirname(__file__)
-filename = os.path.join(currentPath, "model.sav")
-penn_crf = pickle.load(open(filename, 'rb'))
-currentPath = os.path.join(currentPath, "static/images")
-
-for (dirpath, dirnames, filenames) in os.walk(currentPath):
-  for filename in filenames:
-    itemPath = os.path.join(dirpath, filename)
-    os.remove(itemPath)  
-
 def renderTreee(message):
+  currentPath = os.path.dirname(__file__)
+  filename = os.path.join(currentPath, "model.sav")
+  penn_crf = pickle.load(open(filename, 'rb'))
+  currentPath = os.path.join(currentPath, "static/images")
+
+  for (dirpath, dirnames, filenames) in os.walk(currentPath):
+    for filename in filenames:
+      itemPath = os.path.join(dirpath, filename)
+      os.remove(itemPath)  
+      print(itemPath)
+      
   sentence = message
   for i in range(len(sentence.split("."))):
     if sentence.split(".")[i] != "":
